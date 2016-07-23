@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Add Post{% endblock %}
+
+{% if create %}
+    {% block page-title %}Create a new Blog{% endblock %}
+{% else %}
+    {% block page-title %}Update a Blog Post{% endblock %}
+{% else %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <form method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

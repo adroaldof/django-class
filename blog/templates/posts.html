@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}List Posts{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <ul>
+        {% for post in posts %}
+            <li>
+                <div class="col-xs-6">
+                    <a href="{% url 'blog:view' post_id=post.id %}">{{ post.title }}</a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="{% url 'blog:view' post_id=post.id %}">View</a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="{% url 'blog:update' post_id=post.id %}">Update</a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="{% url 'blog:delete' post_id=post.id %}">Delete</a>
+                </div>
+            </li>
+        {% endfor%}
+        </ul>
+    </div>
+</div>
+{% endblock %}
